@@ -78,6 +78,15 @@ body{font-family:var(--sans);background:var(--paper)}.button{border-radius:999px
  #checkout-form .field:has(textarea[name=card]){grid-column:1/-1}
  #checkout-form .checkout-footer{padding-bottom:max(12px,env(safe-area-inset-bottom))}
 }
+
+/* Keep native mobile date controls within the form grid. */
+#checkout-form .field input[type="date"]{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-inline-size:0}
+#checkout-form .field input[type="date"]::-webkit-date-and-time-value{text-align:left;min-width:0}
+@media(max-width:500px){
+ #checkout-form .field:has(input[name="date"]){grid-column:1/-1;width:100%;min-width:0;overflow:hidden}
+ #checkout-form .field:has(select[name="period"]),#checkout-form .field:has(select[name="payment"]){min-width:0}
+ #checkout-form .field select{width:100%;max-width:100%;min-width:0}
+}
 </style></head>
 <body>
 <a class="skip" href="#catalogo">Ir para o catálogo</a>
